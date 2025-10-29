@@ -1,7 +1,5 @@
 # Laboratório: Medusa (Kali) vs Metasploitable — README
 
-> **Aviso:** Todas as atividades descritas neste README foram projetadas para **ambientes controlados** (VMs privadas). **NÃO** execute testes em redes ou sistemas nos quais você não tenha autorização explícita.
-
 ---
 
 ## 1. Resumo do projeto
@@ -26,12 +24,9 @@ Este projeto demonstra testes de força bruta e password spraying utilizando a f
 ---
 
 ## 4. Arquitetura e IPs sugeridos
-Recomenda-se usar rede host-only para isolar o laboratório.
 
 - Kali (atacante): `192.168.56.10`
 - Metasploitable (alvo): `192.168.56.20`
-
-(Configure adaptadores no VirtualBox: Kali com NAT + Host-only, Metasploitable apenas Host-only). Ajuste conforme sua infraestrutura.
 
 ---
 
@@ -54,8 +49,7 @@ ping 192.168.56.20
 
 ---
 
-## 6. Wordlists (exemplos didáticos)
-Crie wordlists pequenas para demonstração. Salve em `/home/kali/lists/`.
+## 6. Wordlists
 
 `users.txt`
 ```
@@ -82,8 +76,6 @@ Senha@123
 P@ssw0rd
 1234abcd
 ```
-
-> **Observação:** Em um teste real e autorizado, use wordlists apropriadas e maior cuidado com volume de tentativas.
 
 ---
 
@@ -117,8 +109,6 @@ medusa -h 192.168.56.20 -U /home/kali/lists/users.txt -P /home/kali/lists/pass_s
 - `FORM:` formato: `'<path>:<campo_user>:<campo_pass>:<texto_indicador_falha>'`
 - Ajuste `path` para o endpoint correto e `texto_indicador_falha` para a mensagem exibida quando o login falha (usada para identificar sucesso quando ausente).
 
-> **Dica:** Para ataques a formulários web, considere usar Burp Suite / OWASP ZAP ou scripts Selenium para maior precisão.
-
 ---
 
 ## 8. Coleta de evidências e validação
@@ -138,7 +128,6 @@ medusa -h 192.168.56.20 -U /home/kali/lists/users.txt -P /home/kali/lists/pass_s
 - **Evidência:** `screenshots/ftp_login_success.png` (colocar capture)
 - **Logs:** trecho de `/var/log/auth.log` com a autenticação bem sucedida.
 
-> No README real, substitua estes modelos por saídas/capturas reais do seu laboratório.
 
 ---
 
@@ -195,7 +184,6 @@ mkdir -p "$OUTDIR"
 medusa -h "$TARGET" -U "$USERLIST" -P "$PASSLIST" -M ftp -t 4 > "$OUTDIR/medusa_$(date +%Y%m%d_%H%M%S)_ftp.txt"
 ```
 
-Inclua este script no apêndice do seu relatório e ajuste caminhos conforme necessário.
 
 ---
 
@@ -207,12 +195,6 @@ Inclua este script no apêndice do seu relatório e ajuste caminhos conforme nec
 
 ---
 
-## 16. Licença
-Este documento é para fins educacionais. Sinta-se à vontade para adaptar para seu portfólio/DIO. Ao reproduzir, mantenha o aviso de uso responsável.
-
----
-
 **FIM**
 
-<!-- Substitua placeholders (screenshots, outputs) com conteúdo real do seu laboratório antes de publicar -->
 
